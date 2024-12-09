@@ -1,0 +1,25 @@
+description: Ultralytics YOLO11n model trained on /home/andrey/git/CameraChessWebFork/model_training/chess-vision-2/data.yaml
+author: Ultralytics
+date: '2024-12-08T20:06:30.043414'
+version: 8.3.44
+license: AGPL-3.0 License (https://ultralytics.com/license)
+docs: https://docs.ultralytics.com
+stride: 32
+task: detect
+batch: 1
+imgsz:
+- 960
+- 1088
+names:
+  0: black-bishop
+  1: black-king
+  2: black-knight
+  3: black-pawn
+  4: black-queen
+  5: black-rook
+  6: white-bishop
+  7: white-king
+  8: white-knight
+  9: white-pawn
+  10: white-queen
+  11: white-rook
