@@ -3449,6 +3449,11 @@ kokopu-react@^3.3.0:
   dependencies:
     htmlparser2 "^9.1.0"
 
+kokopu@^4.11.2:
+  version "4.11.2"
+  resolved "https://registry.yarnpkg.com/kokopu/-/kokopu-4.11.2.tgz#0c18cb541b5f17954350b7523b42ca85b59bc38d"
+  integrity sha512-yBUmajBczH2A6i+XPciYtFnu6doaqmyAI+73cXhFQXuReaAezGrlDh2Ydu2Y8THKXHnqakcwMIe7A/Pz0OnpSw==
+
 leven@^3.1.0:
   version "3.1.0"
   resolved "https://registry.npmjs.org/leven/-/leven-3.1.0.tgz"

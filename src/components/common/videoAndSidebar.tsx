@@ -55,7 +55,7 @@ const VideoAndSidebar = ({ mode }: { mode: Mode }) => {
       `[Site "${boardNumber}"]`,
       `[White "White ${boardNumber}"]`,
       `[Black "Black ${boardNumber}"]`,
-      `[Annotator "ChessCam"]`,
+      `[Annotator "Chess Academy"]`,
       "",
       moves
     ].join("\r");

@@ -1,0 +1,9 @@
+{
+    "name": "Chess Academy",
+    "short_name": "Chess Academy",
+    "start_url": ".",
+
+    "theme_color": "#ffffff",
+    "background_color": "#ffffff",
+    "display": "standalone"
+}

@@ -5,6 +5,7 @@
   "type": "module",
   "scripts": {
     "start": "vite",
+    "startdev": "vite dev",
     "build": "tsc && eslint src --report-unused-disable-directives --max-warnings 0 && vite build",
     "lint": "eslint src --report-unused-disable-directives --max-warnings 0",
     "tsc": "tsc",
@@ -29,6 +30,7 @@
     "chess.js": "^1.0.0-beta.6",
     "delaunator": "^5.0.1",
     "iframe-resizer-react": "^5.1.5",
+    "kokopu": "^4.11.2",
     "kokopu-react": "^3.3.0",
     "mathjs": "^13.0.3",
     "normalize.css": "^8.0.1",
