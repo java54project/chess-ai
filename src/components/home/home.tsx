@@ -1,5 +1,4 @@
 import Header from "./header";
-import Socials from "./socials";
 import NavButton from "./navButton";
 
 const Home = () => {
@@ -26,12 +25,8 @@ const Home = () => {
         <div className="col">
           <NavButton text="Export" tokenRequired={true} />
         </div>
-        <div className="col">
-          <NavButton text="FAQ" tokenRequired={false} />
-        </div>
       </div>
       <div className="row my-2 mx-0 mt-auto">
-        <Socials />
       </div>
     </div>
   );

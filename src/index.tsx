@@ -3,7 +3,6 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import Home from "./components/home/home";
 import Export from "./components/export/export";
 import Privacy from "./components/privacy/privacy";
-import FAQ from "./components/faq/faq";
 import App from "./App";
 
 import { createRoot } from 'react-dom/client';
@@ -58,10 +57,6 @@ const router = createBrowserRouter([
       {
         path: "/privacy",
         element: <Privacy />
-      },
-      {
-        path: "/faq",
-        element: <FAQ />
       }
     ]
   }
