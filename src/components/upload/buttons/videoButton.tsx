@@ -49,7 +49,7 @@ const VideoButton = ({ videoRef, canvasRef, setPlaying }: {
         ref={inputVideoRef}
       />
       <SidebarButton onClick={handleOnClick}>
-        <Icon iconName={streaming ? "bi-folder-x" : "bi-folder"} />
+        <Icon iconName={streaming ? "bi-folder-x" : "bi-folder"} />Your video...
       </SidebarButton>
     </>
   );
