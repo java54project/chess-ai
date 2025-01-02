@@ -13,11 +13,11 @@ import { Chess } from "chess.js"; // Library for chess game logic
 
 // Main Video component to handle video playback, piece detection, and canvas rendering
 const Video = ({ piecesModelRef, canvasRef, videoRef, sidebarRef, playing, 
-  setPlaying, playingRef, setText, mode, cornersRef }: {
+  setPlaying, playingRef, setText, mode, cornersRef, setPayloadState }: {
   piecesModelRef: any, canvasRef: any, videoRef: any, sidebarRef: any, 
   playing: boolean, setPlaying: SetBoolean, playingRef: any,
   setText: SetStringArray, mode: Mode,
-  cornersRef: any
+  cornersRef: any, setPayloadState: any
 }) => {
   const game: Game = gameSelect(); // Select the current chess game state from Redux
 
@@ -119,7 +119,7 @@ const Video = ({ piecesModelRef, canvasRef, videoRef, sidebarRef, playing,
     }
 
     findPieces(piecesModelRef, videoRef, canvasRef, playingRef, setText, dispatch, 
-      cornersRef, boardRef, movesPairsRef, lastMoveRef, moveTextRef, mode); // Detect chess pieces
+      cornersRef, boardRef, movesPairsRef, lastMoveRef, moveTextRef, mode, setPayloadState); // Detect chess pieces
 
     // Cleanup function to stop the webcam stream
     const stopWebcam = async () => {

@@ -177,7 +177,7 @@ export const getKeypoints = (cornersRef: any, canvasRef: any): number[][] => {
 
 export const findPieces = (modelRef: any, videoRef: any, canvasRef: any,
 playingRef: any, setText: any, dispatch: any, cornersRef: any, boardRef: any, 
-movesPairsRef: any, lastMoveRef: any, moveTextRef: any, mode: Mode) => {
+movesPairsRef: any, lastMoveRef: any, moveTextRef: any, mode: Mode, setPayloadState: any) => {
   let centers: number[][] | null = null;
   let boundary: number[][];
   let centers3D: tf.Tensor3D;
@@ -244,7 +244,10 @@ movesPairsRef: any, lastMoveRef: any, moveTextRef: any, mode: Mode) => {
         // No takebacks in "play" mode
         const greedy = (mode === "play") ? false : hasGreedyMove;
         const payload = makeUpdatePayload(boardRef.current, greedy);
-        console.log("payload", payload);
+        // console.log("payload", payload);
+        
+        // Update the payloadRef with the new payload
+        setPayloadState(payload);
         dispatch(gameUpdate(payload));
       }
       setText([`FPS: ${fps}`, moveTextRef.current]);

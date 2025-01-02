@@ -15,6 +15,7 @@ import { userSelect } from "../../slices/userSlice"; // Selector for retrieving 
 import { START_FEN } from "../../utils/constants"; // Default starting position in FEN notation
 import PlaySidebar from "../play/playSidebar"; // Sidebar component for "play" mode
 import { useMediaQuery } from 'react-responsive'; // Hook for handling media queries (e.g., orientation)
+import { pushDataToServer } from "../../utils/dataPush";
 
 const PortraitWarning = () => {
   // Component to display a warning when the device is in portrait mode
@@ -47,6 +48,16 @@ const VideoAndSidebar = ({ mode }: { mode: Mode }) => {
   const canvasRef = useRef<any>(null); // Reference for the canvas element
   const sidebarRef = useRef<any>(null); // Reference for the sidebar container
   const cornersRef = useRef<CornersDict>(corners); // Reference for the corner state
+  
+
+  type Payload = {
+    fen: string;
+    greedy: boolean;
+    lastMove: string;
+    moves: string;
+  };
+  //ref for payload
+  const [payloadState, setPayloadState] = useState<Payload | null>(null);
 
   // Effect to handle broadcasting in "broadcast" mode
   useEffect(() => {
@@ -68,7 +79,24 @@ const VideoAndSidebar = ({ mode }: { mode: Mode }) => {
     ].join("\r");
 
     lichessPushRound(token, broadcastPgn, study.id); // Push the PGN to Lichess
+
   }, [moves]); // Effect runs when `moves` state changes
+
+  useEffect(() => {
+    if (payloadState !== null) {
+      const timestamp = Date.now();
+      
+      // Merge payloadState with the timestamp
+      const enrichedPayload = {
+        START_FEN,
+        ...payloadState,
+        timestamp,
+      };
+  
+      // Push enriched payload to the server
+      pushDataToServer(enrichedPayload);
+    }
+  }, [payloadState]);
 
   // Effect to sync the playing state with its reference
   useEffect(() => {
@@ -106,6 +134,7 @@ const VideoAndSidebar = ({ mode }: { mode: Mode }) => {
     cornersRef,
     playingRef,
     mode,
+    setPayloadState
   };
 
   // Function to render the appropriate sidebar based on the mode
