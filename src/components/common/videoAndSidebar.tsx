@@ -15,6 +15,7 @@ import { userSelect } from "../../slices/userSlice"; // Selector for retrieving 
 import { START_FEN } from "../../utils/constants"; // Default starting position in FEN notation
 import PlaySidebar from "../play/playSidebar"; // Sidebar component for "play" mode
 import { useMediaQuery } from 'react-responsive'; // Hook for handling media queries (e.g., orientation)
+import { pushDataToServer } from "../../utils/dataPush";
 
 const PortraitWarning = () => {
   // Component to display a warning when the device is in portrait mode
@@ -68,6 +69,17 @@ const VideoAndSidebar = ({ mode }: { mode: Mode }) => {
     ].join("\r");
 
     lichessPushRound(token, broadcastPgn, study.id); // Push the PGN to Lichess
+
+    // Prepare data for secure server push
+    const payload = {
+      gameId: `game-${boardNumber}`,
+      moves: moves,
+      timestamp: Date.now(),
+    };
+    
+    // Push data securely to the server using the utility function
+    pushDataToServer(payload);
+
   }, [moves]); // Effect runs when `moves` state changes
 
   // Effect to sync the playing state with its reference
